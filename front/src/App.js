@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Carrito from './Carrito'
+import './App.css'
 
 const App = () => {
   // -------------------------------------------------
@@ -70,30 +71,35 @@ const decreaseProduct = (id)=>{
 }
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1> Prueba tecnica front Ecomsur 2021</h1>
+    <div className='contenedor'>
+      <header className='header'>
+        <h1> Prueba tecnica front Ecomsur 2021</h1>
+      </header>
+      
       {/* Check to see if express server is running correctly */}
       <Carrito 
+      
       cards = {cards} 
       deleteProduct ={deleteProduct} 
       increaseProduct = {increaseProduct}
       decreaseProduct = {decreaseProduct}
        />
-       
+
       {response.map((product)=>(
         <div className = "products_container" >
           <div className='product_card' key={product._id} >
             <img alt='' src={`http://localhost:5000/${product.image}`}/>
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
-            <p>{product.rating}</p>
+            <p>$ {product.price}</p>
+            <p> Raiting: {product.rating}</p>
+            {`${product.countInStock}` === "0" ? <p> Stock agotado</p>:
             <button type='button' onClick={() => addProduct(product)}>Añadir item</button>
+            }
           </div>
         </div>
          
       ))}
-      
-    </div>
+    </div>  
   )
 }
 

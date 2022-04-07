@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css'
 
 const Carrito = ({cards, deleteProduct, increaseProduct, decreaseProduct}) =>{
 
@@ -7,24 +8,29 @@ const Carrito = ({cards, deleteProduct, increaseProduct, decreaseProduct}) =>{
 console.log(cards.length);
   return (
 
-      <>
-      <p>{cards.length} productos</p>
+      <div className = "cart_container">
+      <p className="product_cart">{cards.length} productos</p>
     {
         cards.length > 0 ?
         cards.map((card)=>(
-        <div className="listOrden" key = {card.id}>
-          
-          <div className="product_andNote">
-            
-            <p className='productSelect'>{card.name}</p>
-          </div>
-          <div className='count'>
-            <button type="button" onClick = {()=> decreaseProduct(card.id)}>-</button>
-            <p  className='price' > {card.quantity} </p> 
-            <button type="button" onClick = {()=> increaseProduct(card.id)}>+</button>
-          </div>
-          <p className='price'>S/. {card.subtotal = card.quantity * card.price}</p>
-          <button className='trash' onClick = {()=> {deleteProduct(card.id)}}>Eliminar</button> 
+        <div className="listaCarrito" >
+        <table key = {card.id}>
+        <tr>
+            <td>{card.name}</td>
+            <td>
+                <div className="cantidad">
+                    <button type="button" onClick = {()=> decreaseProduct(card.id)}>-</button>
+                    <p  className='number' > {card.quantity} </p> 
+                    <button type="button" onClick = {()=> increaseProduct(card.id)}>+</button>
+                </div>
+                
+            </td>
+            <td>S/. {card.subtotal = card.quantity * card.price}</td>
+            <td><button className='trash' onClick = {()=> {deleteProduct(card.id)}}>Eliminar</button></td>
+        </tr>
+
+        </table>
+
         </div>  
         )) : (
           <span></span>
@@ -39,7 +45,7 @@ console.log(cards.length);
         </div>
         </>
         }
-  </>
+  </div>
   )
 };
 
