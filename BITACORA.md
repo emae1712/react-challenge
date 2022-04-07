@@ -38,3 +38,5 @@ Se requiere implementar un carrito de compras simple que traiga toda la info del
 - Un carrito de compras que tenga todos los ítems que serán comprados por el usuario. (Carrito.jsx), se puede aumentar eliminar producto hasta agotar stock
 - Espacio donde se muestre la sincronización de los ítems añadidos al carrito, conteo de productos adquiridos
 - Catálogo Responsive
+![Desktop](https://user-images.githubusercontent.com/68023969/162289628-f30db72a-1331-4626-b83d-63ff3928b8f0.JPG)
+![mobile](https://user-images.githubusercontent.com/68023969/162290748-5e69491f-537d-4d7f-acc2-2c8b9b7e418a.JPG)
